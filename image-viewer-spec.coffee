@@ -14,9 +14,9 @@ module 'Image Viewer',
                                           path)   
 
 check_state = (pic_name, pic_description) ->
-    img_src = $('image-viewer-image').getAttribute('src')
+    img_src = $('ljd-image-viewer-image').getAttribute('src')
     equal img_src, "#{path}/#{pic_name}"
-    equal $('image-description').innerHTML, pic_description
+    equal $('ljd-image-viewer-image-description').innerHTML, pic_description
 
 
 test 'Initialization', ->
@@ -24,25 +24,25 @@ test 'Initialization', ->
 
 
 test 'Next button', ->
-    $('next-button').onclick()
+    $('ljd-image-viewer-next-button').onclick()
     check_state '2.png', 'second image'
-    $('next-button').onclick()
+    $('ljd-image-viewer-next-button').onclick()
     check_state '3.png', 'third image'
-    $('next-button').onclick()
+    $('ljd-image-viewer-next-button').onclick()
     check_state '3.png', 'third image'
 
 
 test 'Previous button', ->
-    $('previous-button').onclick()
+    $('ljd-image-viewer-previous-button').onclick()
     check_state '1.png', 'first image'
-    $('next-button').onclick()
-    $('next-button').onclick()
+    $('ljd-image-viewer-next-button').onclick()
+    $('ljd-image-viewer-next-button').onclick()
     check_state '3.png', 'third image'
-    $('previous-button').onclick()
+    $('ljd-image-viewer-previous-button').onclick()
     check_state '2.png', 'second image'
-    $('previous-button').onclick()
+    $('ljd-image-viewer-previous-button').onclick()
     check_state '1.png', 'first image'
-    $('previous-button').onclick()
+    $('ljd-image-viewer-previous-button').onclick()
     check_state '1.png', 'first image'
 
 
