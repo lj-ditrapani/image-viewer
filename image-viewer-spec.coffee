@@ -4,7 +4,7 @@
 
 path = 'images'
 pic_names = ['1.png', '2.png', '3.png']
-pic_descriptions = ['fist image', 'second image', 'third image']
+pic_descriptions = ['first image', 'second image', 'third image']
 
 
 module 'Image Viewer',
@@ -14,8 +14,9 @@ module 'Image Viewer',
                                           path)   
 
 check_state = (pic_name, pic_description) ->
-    equal $('image-description').innerHTML, pic_name
-    equal $('image-viewer-image').src, pic_description
+    img_src = $('image-viewer-image').getAttribute('src')
+    equal img_src, "#{path}/#{pic_name}"
+    equal $('image-description').innerHTML, pic_description
 
 
 test 'Initialization', ->
