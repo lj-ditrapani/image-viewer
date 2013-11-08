@@ -3,8 +3,12 @@ Image Viewer
 
 This project implements a basic JavaScript image viewer with forward and back buttons to cycle through a collection of image and description pairs.
 
-This project depends on utils.js
+Dependencies
+--------------
+
+This project depends on utils.js, qunit, and CoffeeScript
 Download utils.js from ditrapani.info or lj-ditrapani @ github.com
+Download qunit.js and qunit.css from qunitjs.com
 
 The interface
 --------------
