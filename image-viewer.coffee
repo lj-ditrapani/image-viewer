@@ -2,7 +2,6 @@
 # Observer:  Sofia Esther Di Trapani
 
 window.ljd.makeImageViewer = (picNames, picDescriptions, path) ->
-  index = 0
   attributes =
     id: 'ljd-image-viewer-previous-button'
     type: 'button'
@@ -17,15 +16,10 @@ window.ljd.makeImageViewer = (picNames, picDescriptions, path) ->
     disabled: false
     className: 'ljd-image-viewer-button'
   nextButton = ljd.create 'input', attributes, []
-  attributes =
-    id: 'ljd-image-viewer-image'
-    alt: picDescriptions[index]
-    src: "#{path}/#{picNames[index]}"
-  img = ljd.create 'img', attributes, []
+  img = ljd.create 'img', {id: 'ljd-image-viewer-image'}, []
   attributes = {id: 'ljd-image-viewer-image-description'}
-  description = ljd.create 'p', attributes, [picDescriptions[index]]
-  elements = [img, nextButton, description, previousButton]
-  ljd.$ 'ljd-image-viewer', elements
+  description = ljd.create 'p', attributes, []
+  index = 0
 
   setState = (index) ->
     img.src = "#{path}/#{picNames[index]}"
@@ -50,4 +44,6 @@ window.ljd.makeImageViewer = (picNames, picDescriptions, path) ->
       previousButton.disabled = false
     setState index
 
-  return 0
+  setState index
+  elements = [img, nextButton, description, previousButton]
+  ljd.$ 'ljd-image-viewer', elements
