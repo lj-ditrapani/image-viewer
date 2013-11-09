@@ -3,7 +3,7 @@
 
 
 path = 'images'
-pic_names = ['1.png', '2.png', '3.png']
+pic_names = ['1.jpg', '2.png', '3.gif']
 pic_descriptions = ['first image', 'second image', 'third image']
 
 
@@ -20,28 +20,28 @@ check_state = (pic_name, pic_description) ->
 
 
 test 'Initialization', ->
-    check_state '1.png', 'first image'
+    check_state '1.jpg', 'first image'
 
 
 test 'Next button', ->
     ljd.$('ljd-image-viewer-next-button').onclick()
     check_state '2.png', 'second image'
     ljd.$('ljd-image-viewer-next-button').onclick()
-    check_state '3.png', 'third image'
+    check_state '3.gif', 'third image'
     ljd.$('ljd-image-viewer-next-button').onclick()
-    check_state '3.png', 'third image'
+    check_state '3.gif', 'third image'
 
 
 test 'Previous button', ->
     ljd.$('ljd-image-viewer-previous-button').onclick()
-    check_state '1.png', 'first image'
+    check_state '1.jpg', 'first image'
     ljd.$('ljd-image-viewer-next-button').onclick()
     ljd.$('ljd-image-viewer-next-button').onclick()
-    check_state '3.png', 'third image'
+    check_state '3.gif', 'third image'
     ljd.$('ljd-image-viewer-previous-button').onclick()
     check_state '2.png', 'second image'
     ljd.$('ljd-image-viewer-previous-button').onclick()
-    check_state '1.png', 'first image'
+    check_state '1.jpg', 'first image'
     ljd.$('ljd-image-viewer-previous-button').onclick()
-    check_state '1.png', 'first image'
+    check_state '1.jpg', 'first image'
 

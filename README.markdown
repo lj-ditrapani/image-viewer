@@ -45,3 +45,4 @@ TO DO
 - dev-support.zip; put under ditrapani.info/dev-resources/image-viewer-dev-support-pack.zip.  Need to write package-dev-support.sh
 - package-release.sh
 - images/1.jpg 1.png 1.gif
+- Use 2 spaces instead of 4 in CoffeeScript
