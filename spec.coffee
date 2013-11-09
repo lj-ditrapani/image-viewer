@@ -9,9 +9,9 @@ pic_descriptions = ['first image', 'second image', 'third image']
 
 module 'Image Viewer',
     setup: ->
-        @image_viewer = make_image_viewer(pic_names, 
-                                          pic_descriptions, 
-                                          path)   
+        @image_viewer = ljd.make_image_viewer(pic_names, 
+                                              pic_descriptions, 
+                                              path)   
 
 check_state = (pic_name, pic_description) ->
     img_src = ljd.$('ljd-image-viewer-image').getAttribute('src')
@@ -24,7 +24,6 @@ test 'Initialization', ->
 
 
 test 'Next button', ->
-    console.log 'Next button: ', ljd.$('ljd-image-viewer-next-button')
     ljd.$('ljd-image-viewer-next-button').onclick()
     check_state '2.png', 'second image'
     ljd.$('ljd-image-viewer-next-button').onclick()
@@ -34,7 +33,6 @@ test 'Next button', ->
 
 
 test 'Previous button', ->
-    console.log 'Previous button: ', ljd.$('ljd-image-viewer-previous-button')
     ljd.$('ljd-image-viewer-previous-button').onclick()
     check_state '1.png', 'first image'
     ljd.$('ljd-image-viewer-next-button').onclick()
@@ -46,5 +44,4 @@ test 'Previous button', ->
     check_state '1.png', 'first image'
     ljd.$('ljd-image-viewer-previous-button').onclick()
     check_state '1.png', 'first image'
-
 
