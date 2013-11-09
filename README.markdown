@@ -1,24 +1,27 @@
 Image Viewer
-==============
+========================================================================
 
 This project implements a basic JavaScript image viewer with next and previous buttons to cycle through a collection of image and description pairs.
 
+
 Operational Dependencies
---------------
+------------------------------------------------------------------------
 
 This project depends on ljd-utils.js.
 Download ljd-utils.js from ditrapani.info or lj-ditrapani @ github.com
 
+
 Development Dependencies
---------------
+------------------------------------------------------------------------
 
 This project depends on ljd-utils.js, qunit, and CoffeeScript
 Download ljd-utils.js from ditrapani.info or lj-ditrapani @ github.com
 Download qunit.js and qunit.css from qunitjs.com
 Download coffee-script.js from coffeescript.org.
 
+
 The interface
---------------
+------------------------------------------------------------------------
 
 User must include ljd-utils.js and image-viewer.js in their HTML file.
 
@@ -33,3 +36,12 @@ The user must provide an HTML div element with the id="ljd-image-viewer".  The i
 User must load ljd-utils.js, then image-viewer.js.  Then the user must call `ljd.make_image_viewer(pic_names, pic_descriptions, [path])` where `pic_names` is an array of strings of the picture names, `pic_descriptions` is an array of strings of the picture descriptions, and, optionally, `path` which is a string the represents a path to be prepended to each image name before the image is downloaded.  The default path is the empty string.
 
 Size of img?  Should this be a parameter as well?  Make it a dictionary?
+
+
+TO DO
+------
+
+- example.html, example.js
+- dev-support.zip; put under ditrapani.info/dev-resources/image-viewer-dev-support-pack.zip.  Need to write package-dev-support.sh
+- package-release.sh
+- images/1.jpg 1.png 1.gif

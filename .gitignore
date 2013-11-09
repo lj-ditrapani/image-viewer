@@ -1,4 +1,12 @@
-ljd-utils.js
-qunit.js
-qunit.css
-coffee-script.js
+# Dev support only
+/qunit.js
+/qunit.css
+/coffee-script.js
+# Dev support and release
+/ljd-utils.js
+/images
+# Release only
+/example.js
+/image-viewer.js
+# Release artifact
+/image-viewer.zip
