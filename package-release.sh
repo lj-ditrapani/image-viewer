@@ -1,3 +1,4 @@
+coffeelint *.coffee
 coffee -c image-viewer.coffee
 coffee -c example.coffee
 rm -f image-viewer.zip
