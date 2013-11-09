@@ -3,45 +3,55 @@
 
 
 path = 'images'
-pic_names = ['1.jpg', '2.png', '3.gif']
-pic_descriptions = ['first image', 'second image', 'third image']
+picNames = ['1.jpg', '2.png', '3.gif']
+picDescriptions = ['first image', 'second image', 'third image']
 
 
 module 'Image Viewer',
-    setup: ->
-        @image_viewer = ljd.make_image_viewer(pic_names, 
-                                              pic_descriptions, 
-                                              path)   
+  setup: ->
+    ljd.makeImageViewer(picNames, picDescriptions, path)
 
-check_state = (pic_name, pic_description) ->
-    img_src = ljd.$('ljd-image-viewer-image').getAttribute('src')
-    equal img_src, "#{path}/#{pic_name}"
-    equal ljd.$('ljd-image-viewer-image-description').innerHTML, pic_description
+
+checkState = (picName, picDescription, next, previous) ->
+  img = ljd.$('ljd-image-viewer-image')
+  equal img.getAttribute('src'), "#{path}/#{picName}"
+  equal img.alt, picDescription
+  equal ljd.$('ljd-image-viewer-image-description').innerHTML,
+        picDescription
+  equal isDisabled('next'), next
+  equal isDisabled('previous'), previous
+
+
+isDisabled = (buttonShortName) ->
+  ljd.$("ljd-image-viewer-#{buttonShortName}-button").disabled
+
+
+press = (buttonShortName) ->
+  ljd.$("ljd-image-viewer-#{buttonShortName}-button").onclick()
 
 
 test 'Initialization', ->
-    check_state '1.jpg', 'first image'
+  checkState '1.jpg', 'first image', false, true
 
 
 test 'Next button', ->
-    ljd.$('ljd-image-viewer-next-button').onclick()
-    check_state '2.png', 'second image'
-    ljd.$('ljd-image-viewer-next-button').onclick()
-    check_state '3.gif', 'third image'
-    ljd.$('ljd-image-viewer-next-button').onclick()
-    check_state '3.gif', 'third image'
+  press 'next'
+  checkState '2.png', 'second image', false, false
+  press 'next'
+  checkState '3.gif', 'third image', true, false
+  press 'next'
+  checkState '3.gif', 'third image', true, false
 
 
 test 'Previous button', ->
-    ljd.$('ljd-image-viewer-previous-button').onclick()
-    check_state '1.jpg', 'first image'
-    ljd.$('ljd-image-viewer-next-button').onclick()
-    ljd.$('ljd-image-viewer-next-button').onclick()
-    check_state '3.gif', 'third image'
-    ljd.$('ljd-image-viewer-previous-button').onclick()
-    check_state '2.png', 'second image'
-    ljd.$('ljd-image-viewer-previous-button').onclick()
-    check_state '1.jpg', 'first image'
-    ljd.$('ljd-image-viewer-previous-button').onclick()
-    check_state '1.jpg', 'first image'
-
+  press 'previous'
+  checkState '1.jpg', 'first image', false, true
+  press 'next'
+  press 'next'
+  checkState '3.gif', 'third image', true, false
+  press 'previous'
+  checkState '2.png', 'second image', false, false
+  press 'previous'
+  checkState '1.jpg', 'first image', false, true
+  press 'previous'
+  checkState '1.jpg', 'first image', false, true
