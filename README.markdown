@@ -63,8 +63,6 @@ npm module installed to use the developer scripts.
 TO DO
 ------
 
-- Put image-viewer.zip and image-viewer-dev-support.zip on
-  ditrapani.info
 - Add autoload images
     * After onload:
     * Use hidden div
