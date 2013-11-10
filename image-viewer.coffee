@@ -7,7 +7,10 @@
 
 
 window.ljd.makeImageViewer = (picNames, picDescriptions, path) ->
-  path = '' if not path
+  if not path
+    path = ''
+  else
+    path = path + '/' if path.slice(-1) != "/"
   attributes =
     id: 'ljd-image-viewer-previous-button'
     type: 'button'
@@ -28,7 +31,7 @@ window.ljd.makeImageViewer = (picNames, picDescriptions, path) ->
   index = 0
 
   setState = (index) ->
-    img.src = "#{path}/#{picNames[index]}"
+    img.src = path + picNames[index]
     img.alt = picDescriptions[index]
     ljd.setText(description, picDescriptions[index])
 

@@ -10,6 +10,7 @@ picNames = ['1.jpg', '2.png', '3.gif']
 picDescriptions = ['first image', 'second image', 'third image']
 
 
+
 module 'Image Viewer',
   setup: ->
     ljd.makeImageViewer(picNames, picDescriptions, path)
@@ -56,5 +57,20 @@ test 'Previous button', ->
   checkState '2.png', 'second image', false, false
   press 'previous'
   checkState '1.jpg', 'first image', false, true
+  press 'previous'
+  checkState '1.jpg', 'first image', false, true
+
+
+
+module 'Image Viewer No path parameter',
+  setup: ->
+    picNamesWithPaths = ['images/1.jpg', 'images/2.png', 'images/3.gif']
+    ljd.makeImageViewer(picNamesWithPaths, picDescriptions)
+
+
+test 'Missing optional path', ->
+  checkState '1.jpg', 'first image', false, true
+  press 'next'
+  checkState '2.png', 'second image', false, false
   press 'previous'
   checkState '1.jpg', 'first image', false, true
