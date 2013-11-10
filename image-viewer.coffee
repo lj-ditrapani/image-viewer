@@ -5,14 +5,14 @@ window.ljd.makeImageViewer = (picNames, picDescriptions, path) ->
   attributes =
     id: 'ljd-image-viewer-previous-button'
     type: 'button'
-    value: '< Previous'
+    value: '<'
     disabled: true
     className: 'ljd-image-viewer-button'
   previousButton = ljd.create 'input', attributes, []
   attributes =
     id: 'ljd-image-viewer-next-button'
     type: 'button'
-    value: 'Next >'
+    value: '>'
     disabled: false
     className: 'ljd-image-viewer-button'
   nextButton = ljd.create 'input', attributes, []
@@ -45,5 +45,6 @@ window.ljd.makeImageViewer = (picNames, picDescriptions, path) ->
     setState index
 
   setState index
-  elements = [img, nextButton, description, previousButton]
-  ljd.$ 'ljd-image-viewer', elements
+  elements = [previousButton, description, nextButton]
+  div = ljd.create 'div', {id: 'ljd-image-viewer-button-div'}, elements
+  ljd.$ 'ljd-image-viewer', [img, div]
