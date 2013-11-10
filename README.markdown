@@ -3,10 +3,8 @@ Image Viewer
 
 This project implements a basic JavaScript image viewer with next and
 previous buttons to cycle through a collection of image and description
-pairs.  Images are autoloaded after onload has completed using a
-'low-jack' approach (img elements are create and src set to the real
-image urls, given a height and width of 1px and attached to a hidden
-div at the bottom of the image-viewer.)
+pairs.  The image-viewer can also auto-load your images in the 
+background.
 
 
 Operation
@@ -43,6 +41,14 @@ ljd-image-viewer-button.
 User must load ljd-utils.js, then image-viewer.js.  Then the user must call `ljd.makeImageViewer(picNames, picDescriptions, [path])` where `picNames` is an array of strings of the picture names, `picDescriptions` is an array of strings of the picture descriptions, and, optionally, `path` which is a string that represents a path to be prepended to each image name before the image is downloaded.  The default path is the empty string.
 
 
+Auto-load Images
+------------------------------------------------------------------------
+
+To auto-load the images used in the image-viewer, the user must include an empty div with the id='ljd-image-viewer-hidden-div.  Ideally, we want the hidden div to go at the bottom of the html page so that everything else on the page has higher priority and the image pre-loading has the lowest priority.  Therefore, the div should be placed at the bottom of the body of the page so the image pre-loading does not interfere with the normal content of the page.  The user must call ljd.autoloadImages() in their JavaScript to actually trigger the auto-loading.  The call to ljd.autoloadImages() should happen after all the code that sets up the page has completed, so it doesn't interfere with normal page loading.
+
+Images are auto-loaded after onload has completed using a 'low-jack' approach (img elements are create and their src attribute set to the real image urls, given a height and width of 1px, and attached to the hidden div.
+
+
 Development Dependencies
 ------------------------------------------------------------------------
 
@@ -66,6 +72,4 @@ and coffeelint npm modules installed to use the developer scripts.
 TO DO
 ------
 
-- Update README with new autoload images API
-- Merge branches
-- Try autoloading images out on many big images over the network
+- Try auto-loading images out on many big images over the network
