@@ -1,5 +1,8 @@
-# Author:  Lyall Jonathan Di Trapani -----------------------------------
+### Author:  Lyall Jonathan Di Trapani ---------------------------------
 # Observer:  Sofia Esther Di Trapani
+# image-viewer executable specification
+# (run by opening spec.html in a browser)
+###
 
 
 path = 'images'

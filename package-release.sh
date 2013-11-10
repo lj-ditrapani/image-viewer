@@ -1,3 +1,7 @@
+# Author:  Lyall Jonathan Di Trapani -----------------------------------
+# Lint checks the CoffeeScript code, compiles the CoffeeScript code, and
+# bundles the production files into a .zip for the end-users.
+
 coffeelint *.coffee
 coffee -c image-viewer.coffee example.coffee
 rm -f image-viewer.zip

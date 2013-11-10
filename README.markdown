@@ -1,29 +1,28 @@
 Image Viewer
 ========================================================================
 
-This project implements a basic JavaScript image viewer with next and previous buttons to cycle through a collection of image and description pairs.
+This project implements a basic JavaScript image viewer with next and
+previous buttons to cycle through a collection of image and description
+pairs.
 
 
 Operational Dependencies
 ------------------------------------------------------------------------
 
-This project depends on ljd-utils.js.
-Download ljd-utils.js from ditrapani.info or lj-ditrapani @ github.com
-
-
-Development Dependencies
-------------------------------------------------------------------------
-
-This project depends on ljd-utils.js, qunit, and CoffeeScript
-Download ljd-utils.js from ditrapani.info or lj-ditrapani @ github.com
-Download qunit.js and qunit.css from qunitjs.com
-Download coffee-script.js from coffeescript.org.
+To use this product, download it from
+http://ditrapani.info/resources/image-viewer.zip .
+Unzip the zip file.  The ljd-utils.js and image-viewer.js must be linked
+in your HTML file (in that order).  See `example.html` for an example.
+Then you must call `ljd.makeImageViewer()` with the desired parameters.
+See an example of this in `example.js`.  Style the elements to your
+liking.  See `example.css` for ideas.
 
 
 The interface
 ------------------------------------------------------------------------
 
-User must include ljd-utils.js and image-viewer.js in their HTML file.
+User must include ljd-utils.js and image-viewer.js in their HTML file in
+that order.
 
 The user must provide an HTML div element with the id="ljd-image-viewer".  The image-viewer will create elements with the following ids (so you can style them how you want in the CSS.)
 
@@ -32,17 +31,43 @@ The user must provide an HTML div element with the id="ljd-image-viewer".  The i
     - Previous button:  ljd-image-viewer-previous-button
     - img element:  ljd-image-viewer-image
     - Image description label:  ljd-image-viewer-image-description
+    - Div containing buttons and description label:
+      ljd-image-viewer-button-div
 
-User must load ljd-utils.js, then image-viewer.js.  Then the user must call `ljd.make_image_viewer(pic_names, pic_descriptions, [path])` where `pic_names` is an array of strings of the picture names, `pic_descriptions` is an array of strings of the picture descriptions, and, optionally, `path` which is a string the represents a path to be prepended to each image name before the image is downloaded.  The default path is the empty string.
+The next and previous buttons have the CCS style name
+ljd-image-viewer-button.
 
-Size of img?  Should this be a parameter as well?  Make it a dictionary?
+User must load ljd-utils.js, then image-viewer.js.  Then the user must call `ljd.makeImageViewer(picNames, picDescriptions, [path])` where `picNames` is an array of strings of the picture names, `picDescriptions` is an array of strings of the picture descriptions, and, optionally, `path` which is a string that represents a path to be prepended to each image name before the image is downloaded.  The default path is the empty string.
+
+
+Development Dependencies
+------------------------------------------------------------------------
+
+To develop this product, clone the repository and then download the developer support package at
+http://ditrapani.info/dev-resources/image-viewer-dev-support.zip .
+Unzip image-viewer-dev-support.zip inside the project folder.
+You'll want a Bourne compatible shell and node.js with the CoffeeScript
+npm module installed to use the developer scripts.
+
+- **package-release.sh**: Lint checks the CoffeeScript code, compiles
+  the CoffeeScript code, and bundles the production files into a .zip
+  for the end-users.
+- **package-dev-support.sh**: Bundles the 3rd party development files
+  and resources into a .zip (files that aren't in the github repository
+  because they don't belong there.)
+- **spec.coffee**: image-viewer executable specification
+  (run by opening spec.html in a browser)
+- **spec.html**: Runs the image-viewer executable specification
 
 
 TO DO
 ------
 
-- example.html, example.js
-- dev-support.zip; put under ditrapani.info/dev-resources/image-viewer-dev-support-pack.zip.  Need to write package-dev-support.sh
-- package-release.sh
-- images/1.jpg 1.png 1.gif
-- Use 2 spaces instead of 4 in CoffeeScript
+- Add README to image-viewer.zip
+- Put image-viewer.zip and image-viewer-dev-support.zip on
+  ditrapani.info
+- Add autoload images
+    * After onload:
+    * Use hidden div
+    * Loop through picNames and create 1 img per name and attach to div
+    * Make img sizes 1x1 px
