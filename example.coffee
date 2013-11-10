@@ -6,3 +6,4 @@ window.onload = ->
   picNames = ['1.jpg', '2.png', '3.gif']
   picDescriptions = ['first image', 'second image', 'third image']
   ljd.makeImageViewer(picNames, picDescriptions, path)
+  ljd.autoloadImages()

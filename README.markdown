@@ -9,7 +9,7 @@ image urls, given a height and width of 1px and attached to a hidden
 div at the bottom of the image-viewer.)
 
 
-Operational Dependencies
+Operation
 ------------------------------------------------------------------------
 
 To use this product, download it from
