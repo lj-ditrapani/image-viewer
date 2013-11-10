@@ -26,13 +26,13 @@ that order.
 
 The user must provide an HTML div element with the id="ljd-image-viewer".  The image-viewer will create elements with the following ids (so you can style them how you want in the CSS.)
 
-    - Image viewer container:  ljd-image-viewer
-    - Next button:  ljd-image-viewer-next-button
-    - Previous button:  ljd-image-viewer-previous-button
-    - img element:  ljd-image-viewer-image
-    - Image description label:  ljd-image-viewer-image-description
-    - Div containing buttons and description label:
-      ljd-image-viewer-button-div
+- Image viewer container:  ljd-image-viewer
+- Next button:  ljd-image-viewer-next-button
+- Previous button:  ljd-image-viewer-previous-button
+- img element:  ljd-image-viewer-image
+- Image description label:  ljd-image-viewer-image-description
+- Div containing buttons and description label:
+  ljd-image-viewer-button-div
 
 The next and previous buttons have the CCS style name
 ljd-image-viewer-button.
@@ -63,7 +63,6 @@ npm module installed to use the developer scripts.
 TO DO
 ------
 
-- Add README to image-viewer.zip
 - Put image-viewer.zip and image-viewer-dev-support.zip on
   ditrapani.info
 - Add autoload images
