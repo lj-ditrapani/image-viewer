@@ -1,32 +1,32 @@
 body {
-    background-color: #594646;
     font-family: sans-serif;
+    background-color: #594646;
 }
 
 h1 {
     color: #f2dab4;
     text-align: center;
-    padding: 3px;
     max-width: 794px;
+    padding: 3px;
     padding-bottom: 10px;
     margin: auto;
 }
 
 div#ljd-image-viewer {
-    margin: auto;
+    width: 788px;
     padding: 10px;
     border: 2px solid #8dcac0;
     border-radius: 15px;
-    width: 788px;
+    margin: auto;
 }
 
 img {
     height: 600px;
     width: 788px;
-    display: block;
+    border-radius: 10px;
     margin: auto;
     margin-bottom: 10px;
-    border-radius: 10px;
+    display: block;
 }
 
 div#ljd-image-viewer-button-div {
@@ -36,26 +36,26 @@ div#ljd-image-viewer-button-div {
 }
 
 p#ljd-image-viewer-image-description {
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
     color: #f2dab4;
     width: 600px;
     height: 25px;
-    float: left;
-    margin: auto;
-    text-align: center;
-    vertical-align: middle;
     padding-top: 5px;
-    font-size: 13px;
+    margin: auto;
+    float: left;
 }
 
 input.ljd-image-viewer-button {
     font-size: 20px;
     font-weight: bold;
     color: white;
-    width: 94px;
-    float: left;
-    height: 30px;
-    background-color: #527068;
     text-decoration: none;
+    background-color: #527068;
+    width: 94px;
+    height: 30px;
+    float: left;
     border:none;
     border-radius: 10px;
 }
@@ -64,8 +64,8 @@ input.ljd-image-viewer-button:hover {
     font-size: 20px;
     font-weight: bold;
     color: white;
-    border: none;
     background-color: #8dcac0;
+    border: none;
 }
 
 
