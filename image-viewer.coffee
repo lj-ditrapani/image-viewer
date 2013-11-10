@@ -1,7 +1,7 @@
 ### Author:  Lyall Jonathan Di Trapani ---------------------------------
 # Observer:  Sofia Esther Di Trapani
 # Depends on ljd-utils.js;  ljd-utils.js must be loaded first
-# Implements a basic JavaScript image viewer with next and previous 
+# Implements a basic JavaScript image viewer with next and previous
 # buttons to cycle through a collection of image and description pairs.
 ###
 
