@@ -62,6 +62,7 @@ test 'Previous button', ->
 
 
 test 'Automatic img loading', ->
+  ljd.autoloadImages()
   hiddenDiv = ljd.$('ljd-image-viewer-hidden-div')
   equal hiddenDiv.style.visibility, 'hidden'
   imgs = hiddenDiv.getElementsByTagName('img')

@@ -6,7 +6,7 @@
 ###
 
 
-window.ljd.makeImageViewer = (picNames, picDescriptions, path) ->
+ljd.makeImageViewer = (picNames, picDescriptions, path) ->
   if not path
     path = ''
   else
@@ -54,22 +54,28 @@ window.ljd.makeImageViewer = (picNames, picDescriptions, path) ->
     setState index
 
   setState index
+  ljd.autoloadImages.picNames = picNames
+  ljd.autoloadImages.path = path
   elements = [previousButton, description, nextButton]
   div = ljd.create 'div', {id: 'ljd-image-viewer-button-div'}, elements
-  hiddenDiv = makeHiddenImages(picNames, path)
-  ljd.$ 'ljd-image-viewer', [img, div, hiddenDiv]
+  ljd.$ 'ljd-image-viewer', [img, div]
 
 
-makeHiddenImages = (picNames, path) ->
+ljd.autoloadImages = () ->
+  path = ljd.autoloadImages.path
   imgs = []
-  for picName in picNames
+  for picName in ljd.autoloadImages.picNames
     img = ljd.create 'img', {src: path + picName}, []
     img.style.height = '1px'
     img.style.width = '1px'
+    img.style.padding = '0px'
+    img.style.margin = '0px'
+    img.style.border = 'none'
     imgs.push(img)
-  hiddenDiv = ljd.create 'div',
-                         {id: 'ljd-image-viewer-hidden-div'},
-                         imgs
+  hiddenDiv = ljd.$ 'ljd-image-viewer-hidden-div', imgs
   hiddenDiv.style.visibility = 'hidden'
   hiddenDiv.style.height = '1px'
+  hiddenDiv.style.padding = '0px'
+  hiddenDiv.style.margin = '0px'
+  hiddenDiv.style.border = 'none'
   return hiddenDiv
