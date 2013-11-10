@@ -20,7 +20,7 @@ div#ljd-image-viewer {
     margin: auto;
 }
 
-img {
+img#ljd-image-viewer-image {
     height: 600px;
     width: 788px;
     border-radius: 10px;

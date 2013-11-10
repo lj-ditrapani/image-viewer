@@ -3,7 +3,10 @@ Image Viewer
 
 This project implements a basic JavaScript image viewer with next and
 previous buttons to cycle through a collection of image and description
-pairs.
+pairs.  Images are autoloaded after onload has completed using a
+'low-jack' approach (img elements are create and src set to the real
+image urls, given a height and width of 1px and attached to a hidden
+div at the bottom of the image-viewer.)
 
 
 Operational Dependencies
@@ -47,7 +50,7 @@ To develop this product, clone the repository and then download the developer su
 http://ditrapani.info/dev-resources/image-viewer-dev-support.zip .
 Unzip image-viewer-dev-support.zip inside the project folder.
 You'll want a Bourne compatible shell and node.js with the CoffeeScript
-npm module installed to use the developer scripts.
+and coffeelint npm modules installed to use the developer scripts.
 
 - **package-release.sh**: Lint checks the CoffeeScript code, compiles
   the CoffeeScript code, and bundles the production files into a .zip
@@ -56,15 +59,11 @@ npm module installed to use the developer scripts.
   and resources into a .zip (files that aren't in the github repository
   because they don't belong there.)
 - **spec.coffee**: image-viewer executable specification
-  (run by opening spec.html in a browser)
-- **spec.html**: Runs the image-viewer executable specification
+  (run by opening spec.html in a browser.)
+- **spec.html**: Runs the image-viewer executable specification.
 
 
 TO DO
 ------
 
-- Add autoload images
-    * After onload:
-    * Use hidden div
-    * Loop through picNames and create 1 img per name and attach to div
-    * Make img sizes 1x1 px
+- Try autoloading images out on many big images over the network

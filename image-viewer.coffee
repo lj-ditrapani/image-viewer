@@ -56,4 +56,20 @@ window.ljd.makeImageViewer = (picNames, picDescriptions, path) ->
   setState index
   elements = [previousButton, description, nextButton]
   div = ljd.create 'div', {id: 'ljd-image-viewer-button-div'}, elements
-  ljd.$ 'ljd-image-viewer', [img, div]
+  hiddenDiv = makeHiddenImages(picNames, path)
+  ljd.$ 'ljd-image-viewer', [img, div, hiddenDiv]
+
+
+makeHiddenImages = (picNames, path) ->
+  imgs = []
+  for picName in picNames
+    img = ljd.create 'img', {src: path + picName}, []
+    img.style.height = '1px'
+    img.style.width = '1px'
+    imgs.push(img)
+  hiddenDiv = ljd.create 'div',
+                         {id: 'ljd-image-viewer-hidden-div'},
+                         imgs
+  hiddenDiv.style.visibility = 'hidden'
+  hiddenDiv.style.height = '1px'
+  return hiddenDiv

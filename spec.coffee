@@ -61,6 +61,18 @@ test 'Previous button', ->
   checkState '1.jpg', 'first image', false, true
 
 
+test 'Automatic img loading', ->
+  hiddenDiv = ljd.$('ljd-image-viewer-hidden-div')
+  equal hiddenDiv.style.visibility, 'hidden'
+  imgs = hiddenDiv.getElementsByTagName('img')
+  equal imgs.length, 3
+  for i in [0...imgs.length]
+    picName = picNames[i]
+    img = imgs[i]
+    equal img.getAttribute('src'), "#{path}/#{picName}"
+    equal img.height, '1'
+    equal img.width, '1'
+
 
 module 'Image Viewer No path parameter',
   setup: ->
