@@ -66,4 +66,6 @@ and coffeelint npm modules installed to use the developer scripts.
 TO DO
 ------
 
+- Update README with new autoload images API
+- Merge branches
 - Try autoloading images out on many big images over the network
