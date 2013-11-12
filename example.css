@@ -31,8 +31,8 @@ img#ljd-image-viewer-image {
 
 div#ljd-image-viewer-button-div {
     width: 788px;
-    height: 30px;
     margin: auto;
+    overflow: hidden;
 }
 
 p#ljd-image-viewer-image-description {

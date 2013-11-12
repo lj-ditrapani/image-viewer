@@ -74,8 +74,8 @@ ljd.autoloadImages = () ->
     imgs.push(img)
   hiddenDiv = ljd.$ 'ljd-image-viewer-hidden-div', imgs
   hiddenDiv.style.visibility = 'hidden'
-  hiddenDiv.style.height = '1px'
   hiddenDiv.style.padding = '0px'
   hiddenDiv.style.margin = '0px'
   hiddenDiv.style.border = 'none'
+  hiddenDiv.style.fontSize = '0px'
   return hiddenDiv
